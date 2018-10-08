@@ -1,0 +1,16 @@
+{{ partial "header" . }}
+
+<main>
+    {{ range (.Paginator 10).Pages }}
+        {{ if eq "Tags" $.Title }}
+           {{partial "list-item-tags.html" .}}
+        {{else}}
+            {{ partial "list-item-project" . }}
+        {{end}}
+    {{end}}
+    
+</main>
+
+{{ partial "paginator" . }}
+
+{{ partial "footer" . }}

@@ -1,0 +1,20 @@
+<div class="item">
+    
+{{ $.Scratch.Set "link" .RelPermalink }}
+
+<h4><a href="{{ .Scratch.Get "link" }}">{{ .Title }}</a></h4>
+    <h5>{{ $.Scratch.Get "pub_date" }}</h5>
+    <h5>{{ $.Scratch.Get "subtitle" }}</h5>
+    {{ range.Params.categories }}
+<a href="{{"/categories/"|relLangURL }}{{.|urlize}}">
+    <kbd class="item-cat"> {{ . }} </kbd>
+        </a>
+        {{ end }}
+    {{ range .Params.tags }}
+    <a href="{{"/tags/"|relLangURL }}{{.|urlize}}">
+        <kbd class="item-tag"> {{ . }} </kbd>
+            </a>
+            {{ end }}
+        
+        </div>
+            
